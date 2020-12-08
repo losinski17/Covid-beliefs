@@ -1,0 +1,28 @@
+---
+title: "covid-beliefs"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+   
+```{r include = FALSE}    
+library(dplyr)
+library(readxl)
+
+covid_beliefs <- read_xlsx('../data/life-under-lockdown-w2-extract.xlsx', sheet = 1)
+```
+
+
+# Hypohesis testing
+## Hypothesis testing of gender and conspiracy beliefs
+
+
+```{r}
+covid_beliefs %>%
+  group_by(gender) %>%
+  summarise(mean_beliefs = mean(beliefs))
+```
+
+
